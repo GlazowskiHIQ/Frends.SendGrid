@@ -14,7 +14,7 @@ namespace Frends.SendGrid
     {
         /// <summary>
         /// This task sends email via SendGrid API
-        /// Documentation: https://github.com/CommunityHiQ/Frends.SendGrid
+        /// Documentation: https://github.com/GlazowskiHIQ/Frends.SendGrid
         /// </summary>
         /// <param name="input">What to repeat.</param>
         /// <param name="options">Define if repeated multiple times. </param>
