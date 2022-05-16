@@ -12,19 +12,22 @@ namespace Frends.SendGrid
     public static class Email
     {
         /// <summary>
-        /// This task sends email via SendGrid API \n
+        /// This task sends email via SendGrid API 
+        /// 
         /// Documentation: https://github.com/GlazowskiHIQ/Frends.SendGrid
         /// </summary>
-        /// <param name="input">What to repeat.</param>
+        /// <param name="input">Email parameters.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Result: {string Body, string StatusCode, string Headers} </returns>
         public static async Task<Result> SendEmail(Parameters input, CancellationToken cancellationToken)
         {
 
             var message = new SendGridMessage();
 
-            foreach (string recipient in input.Recipients)
+            foreach (string singleEntry in input.Recipients)
             {
-                message.AddTo(new EmailAddress(recipient));
+                foreach(string recipient in singleEntry.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries))
+                message.AddTo(new EmailAddress(recipient.Trim()));
             }
 
             message.SetFrom(new EmailAddress(input.Sender));

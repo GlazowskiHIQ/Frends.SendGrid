@@ -27,9 +27,9 @@ Sends email with the usage of SendGrid API.
 
 | Property | Type | Description | Example |
 | -------- | -------- | -------- | -------- |
-| AuthorizationToken | `string` | API key provided by SendGrid | `SG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| AuthorizationToken | `string` | API key provided by SendGrid | `SG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | Sender | `string` | Email address from whom the email has been sent | `sender@example.com` |
-| Recipients | `string[]` | Array of addresses to whom the email will be sent | `recipient@example.com` |
+| Recipients | `string[]` | Array of addresses to whom the email will be sent. Multiple addresses in one entry must be seperated with `,` | `recipient@example.com` |
 | Subject | `string` | Subject of the email | `Example subject` |
 | Message | `string` | Message of the email in `html` format | `Hello!<br>This is example<br>Best regards!` |
 | Attachments | `Attachments[]` | Array of Attachments type objects ||
@@ -48,7 +48,7 @@ A result object with parameters.
 
 | Property | Type | Description | Example |
 | -------- | -------- | -------- | -------- |
-| StatusCode | `string` | HTTP Status Code recieved from server | `202` |
+| StatusCode | `string` | HTTP Status Code recieved from server | `Accepted` |
 | Body | `string` | Body of message recieved from server | |
 | Headers | `string` | String of headers recieved with message | |
 
