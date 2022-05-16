@@ -1,7 +1,7 @@
 ﻿{
 	"Tasks": [
 		{
-			"TaskMethod": "Frends.SendGrid.SendGrid.SendEmail"
+			"TaskMethod": "Frends.SendGrid.Email.Send"
 		}
 	]
 }
