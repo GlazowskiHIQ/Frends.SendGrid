@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Microsoft.CSharp; // You can remove this if you don't need dynamic type in .NET Standard frends Tasks
 using SendGrid.Helpers.Mail;
 using SendGrid;
-using System.Collections.Generic;
 
 #pragma warning disable 1591
 
@@ -13,14 +12,12 @@ namespace Frends.SendGrid
     public static class Email
     {
         /// <summary>
-        /// This task sends email via SendGrid API
+        /// This task sends email via SendGrid API \n
         /// Documentation: https://github.com/GlazowskiHIQ/Frends.SendGrid
         /// </summary>
         /// <param name="input">What to repeat.</param>
-        /// <param name="options">Define if repeated multiple times. </param>
-        /// <param name="cancellationToken"></param>
-        /// <returns>{string Replication} </returns>
-        public static async Task<Result> Send(Parameters input, CancellationToken cancellationToken)
+        /// <returns>Result: {string Body, string StatusCode, string Headers} </returns>
+        public static async Task<Result> SendEmail(Parameters input, CancellationToken cancellationToken)
         {
 
             var message = new SendGridMessage();

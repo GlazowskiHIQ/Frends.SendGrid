@@ -18,22 +18,28 @@ https://www.myget.org/F/frends-community/api/v3/index.json and in Gallery view i
 
 # Tasks
 
-## SendGrid
+## SendEmail
 
-Repeats a message
+Sends email with the usage of SendGrid API.
 
-### Properties
 
-| Property | Type | Description | Example |
-| -------- | -------- | -------- | -------- |
-| Message | `string` | Some string that will be repeated. | `foo` |
-
-### Options
+### Parameters
 
 | Property | Type | Description | Example |
 | -------- | -------- | -------- | -------- |
-| Amount | `int` | Amount how many times message is repeated. | `3` |
-| Delimiter | `string` | Character(s) used between replications. | `, ` |
+| AuthorizationToken | `string` | API key provided by SendGrid | `Bearer <<api key>>` |
+| Sender | `string` | Email address from whom the email has been sent | `sender@example.com` |
+| Recipients | `string[]` | Array of addresses to whom the email will be sent | `recipient@example.com` |
+| Subject | `string` | Subject of the email | `Example subject` |
+| Attachments | `Attachments[]` | Array of Attachments type objects ||
+
+#### Attachments
+
+| Property | Type | Description | Example |
+| -------- | -------- | -------- | -------- |
+| ContentType | `string` | MIME type of attachment | `application/json` |
+| FileName | `string` | File name | `example.txt` |
+| Content | `string` | Base64 string of attached file| |
 
 ### Returns
 
@@ -41,12 +47,9 @@ A result object with parameters.
 
 | Property | Type | Description | Example |
 | -------- | -------- | -------- | -------- |
-| Replication | `string` | Repeated string. | `foo, foo, foo` |
-
-Usage:
-To fetch result use syntax:
-
-`#result.Replication`
+| StatusCode | `string` | HTTP Status Code recieved from server | `202` |
+| Body | `string` | Body of message recieved from server | |
+| Headers | `string` | String of headers recieved with message | |
 
 # Building
 
