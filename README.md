@@ -27,10 +27,11 @@ Sends email with the usage of SendGrid API.
 
 | Property | Type | Description | Example |
 | -------- | -------- | -------- | -------- |
-| AuthorizationToken | `string` | API key provided by SendGrid | `Bearer <<api key>>` |
+| AuthorizationToken | `string` | API key provided by SendGrid | `SG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | Sender | `string` | Email address from whom the email has been sent | `sender@example.com` |
 | Recipients | `string[]` | Array of addresses to whom the email will be sent | `recipient@example.com` |
 | Subject | `string` | Subject of the email | `Example subject` |
+| Message | `string` | Message of the email in `html` format | `Hello!<br>This is example<br>Best regards!` |
 | Attachments | `Attachments[]` | Array of Attachments type objects ||
 
 #### Attachments

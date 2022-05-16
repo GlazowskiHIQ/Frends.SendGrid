@@ -29,6 +29,10 @@ namespace Frends.SendGrid
 
             message.SetFrom(new EmailAddress(input.Sender));
 
+            message.SetSubject(input.Subject);
+
+            message.AddContent("text/html", input.Message);
+
             foreach (Attachments attachment in input.Attachments)
             {
                 message.AddAttachment(attachment.FileName, attachment.Content, attachment.ContentType);
@@ -68,6 +72,7 @@ namespace Frends.SendGrid
                 }
             };
 
+            cancellationToken.ThrowIfCancellationRequested();
 
             var client = new SendGridClient(input.AuthorizationToken);
             var response = await client.SendEmailAsync(message).ConfigureAwait(false);
